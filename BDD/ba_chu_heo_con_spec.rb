@@ -17,13 +17,13 @@ describe 'Chuyện ba chú heo con' do
     end
 
     it 'nhà phải bằng rơm' do
-      @nhà_rơm.vật_liệu.must_be_instance_of Rơm
+      assert_instance_of Rơm, @nhà_rơm.vật_liệu
     end
 
     describe 'chó sói tấn công' do
       describe 'chó sói thổi với sức gió 1' do
         it 'nhà rơm bị đổ' do
-          @nhà_rơm.đổ?(@sói.thổi).must_equal true
+          assert @nhà_rơm.đổ?(@sói.thổi)
         end
       end
     end
@@ -35,19 +35,19 @@ describe 'Chuyện ba chú heo con' do
     end
 
     it 'nhà phải bằng gỗ' do
-      @nhà_gỗ.vật_liệu.must_be_instance_of Gỗ
+      assert_instance_of Gỗ, @nhà_gỗ.vật_liệu
     end
 
     describe 'chó sói tấn công' do
       describe 'chó sói thổi với sức gió 1' do
         it 'nhà gỗ không bị đổ' do
-          @nhà_gỗ.đổ?(@sói.thổi).must_equal false
+          refute @nhà_gỗ.đổ?(@sói.thổi)
         end
       end
 
       describe 'chó sói thổi với sức gió 2' do
         it 'nhà gỗ bị đổ' do
-          @nhà_gỗ.đổ?(@sói.thổi(2)).must_equal true
+          assert @nhà_gỗ.đổ?(@sói.thổi(2))
         end
       end
     end
@@ -57,25 +57,25 @@ describe 'Chuyện ba chú heo con' do
     before(:all) { @nhà_gạch = @heo_cả.xây_nhà }
 
     it 'nhà phải bằng gạch' do
-      @nhà_gạch.vật_liệu.must_be_instance_of Gạch
+      assert_instance_of Gạch, @nhà_gạch.vật_liệu
     end
 
     describe 'chó sói tấn công' do
       describe 'chó sói thổi với sức gió 1' do
         it 'nhà gạch không bị đổ' do
-          @nhà_gạch.đổ?(@sói.thổi).must_equal false
+          refute @nhà_gạch.đổ?(@sói.thổi)
         end
       end
 
       describe 'chó sói thổi với sức gió 2' do
         it 'nhà gạch không bị đổ' do
-          @nhà_gạch.đổ?(@sói.thổi(2)).must_equal false
+          refute @nhà_gạch.đổ?(@sói.thổi(2))
         end
       end
 
       describe 'chó sói thổi với sức gió 3' do
         it 'nhà gạch không bị đổ' do
-          @nhà_gạch.đổ?(@sói.thổi(3)).must_equal false
+          refute @nhà_gạch.đổ?(@sói.thổi(3))
         end
       end
     end
